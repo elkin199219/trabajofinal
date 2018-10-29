@@ -1,0 +1,70 @@
+
+package trabajofinal;
+
+/**
+ *
+ * @author Elkin
+ */
+
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class Trabajofinal extends JFrame {
+
+    JButton btnsuma = new JButton("Suma");
+    JButton btnresta = new JButton("Resta");
+    JButton btnmultiplicacion = new JButton("Multiplicacion");
+    JToolBar Calcular = new JToolBar();
+
+    public Trabajofinal() {
+        Calcular.add(btnsuma);
+        Calcular.add(btnresta);
+        Calcular.add(btnmultiplicacion);
+        add(Calcular, "North");
+        setSize(300, 400);
+        setVisible(true);
+        
+        //Funcion para suma con interfaz
+        btnsuma.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                int a, b, valor;
+                a = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese valor entero para a:"));
+                b = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese valor entero para b :"));
+                valor = a + b;
+                JOptionPane.showMessageDialog(null, "La suma total es:" + valor);
+
+            }
+        }
+        );
+        //Funcion para resta con interfaz
+        btnresta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int a, b, valor;
+                a = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese valor entero para a :"));
+                b = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese valor entero para b :"));
+                valor = a - b;
+                JOptionPane.showMessageDialog(null, "La resta total es:" + valor);
+            }
+        }
+        );
+        //Funcion para multiplicacion con interfaz
+        //Principio de dependencia para evitar errores en otros modulos
+        btnmultiplicacion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int a, b, valor;
+                a = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese valor entero para a :"));
+                b = Integer.parseInt(JOptionPane.showInputDialog("Por favor ingrese valor entero para b :"));
+                valor = a * b;
+                JOptionPane.showMessageDialog(null, "La multiplicación total es:" + valor);
+            }
+        }
+        );
+        
+    }
+
+    public static void main(String args[]) {
+        new Trabajofinal();
+    }
+}
